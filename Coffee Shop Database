@@ -1,40 +1,40 @@
 --Create a grocery store database
 
 /** Coffee Shop:
-Vanilla Latte (3.99)
+Vanilla Latte (3.00)
 Carmel Latte (4.00)
 Mocha Latte (3.25)
 White Chocolate Raspberry Latte (4.50)
-Black Coffee(2)
-Brown Sugar (3.25)
-PB (3.50)
+Black Coffee(2.00)
+Brown Sugar Latte (3.25)
+Oat Milk Lattee (3.50)
 Iced Vanilla (3.00)
-Iced Mocha (4)
+Iced Mocha (4.00)
 Iced Carmel (4.00)
-Iced Tea (5)
-Lemonade (5)
-Water (2)
-Sweet Tea (3)
+Iced Tea (5.00)
+Lemonade (5.00)
+Water (2.00)
+Sweet Tea (3.00)
 Matcha (4.50)
 **/
 
-CREATE TABLE Coffee (id INTEGER PRIMARY KEY, Menu TEXT, price INTEGER, quantity INTEGER, popularity INTEGER);
+CREATE TABLE Coffee (id INTEGER PRIMARY KEY, Menu TEXT, price INTEGER, quantity_ordered INTEGER, popularity_rating INTEGER);
 
-INSERT into Coffee VALUES (1, "Vanilla Latte", 3.99, 20, 8);
+INSERT into Coffee VALUES (1, "Vanilla Latte", 3.00, 20, 8);
 INSERT into Coffee VALUES (2, "Carmel Latte", 4.00, 15, 7);
 INSERT into Coffee VALUES (3, "Mocha Latte", 3.25, 17, 4);
 INSERT into Coffee VALUES (4, "White Chocolate Raspberry Latte", 4.50, 25, 7);
-INSERT into Coffee VALUES (5, "Black Coffee", 2, 18, 3);
-INSERT into Coffee VALUES (6, "Brown Sugar", 3.25, 10, 3);
-INSERT into Coffee VALUES (7, "PB", 3.50, 12, 5);
-INSERT into Coffee VALUES (8, "Iced Vanilla", 3, 15, 7);
-INSERT into Coffee VALUES (9, "Iced Mocha", 4, 14, 6);
+INSERT into Coffee VALUES (5, "Black Coffee", 2.00, 18, 3);
+INSERT into Coffee VALUES (6, "Brown Sugar Latte", 3.25, 10, 3);
+INSERT into Coffee VALUES (7, "Oat Milk Latte", 3.50, 12, 5);
+INSERT into Coffee VALUES (8, "Iced Vanilla", 3.00, 15, 7);
+INSERT into Coffee VALUES (9, "Iced Mocha", 4.00, 14, 6);
 INSERT into Coffee VALUES (10, "Iced Carmel", 4.00, 10, 8);
-INSERT into Coffee VALUES (11, "Iced Tea", 5, 15, 6);
-INSERT into Coffee VALUES (12, "Lemonade", 5, 20, 7);
-INSERT into Coffee VALUES (13, "Water", 2, 20, 4);
-INSERT into Coffee VALUES (14, "Sweet Tea", 3, 15, 5);
+INSERT into Coffee VALUES (11, "Iced Tea", 5.00, 15, 6);
+INSERT into Coffee VALUES (12, "Lemonade", 5.00, 20, 7);
+INSERT into Coffee VALUES (13, "Water", 2.00, 20, 4);
+INSERT into Coffee VALUES (14, "Sweet Tea", 3.00, 15, 5);
 INSERT into Coffee VALUES (15, "Matacha", 4.50, 10, 6);
 
 SELECT * FROM Coffee ORDER BY price;
-SELECT menu, SUM(price) FROM Coffee GROUP BY id;
+SELECT menu, SUM(quantity_ordered) FROM Coffee GROUP BY id;
