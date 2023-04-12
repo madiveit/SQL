@@ -38,3 +38,5 @@ INSERT into Coffee VALUES (15, "Matacha", 4.50, 10, 6);
 
 SELECT * FROM Coffee ORDER BY price;
 SELECT menu, SUM(quantity_ordered) FROM Coffee GROUP BY id;
+
+SELECT menu, price, popularity_rating FROM Coffee ORDER BY popularity_rating DESC LIMIT 5;
