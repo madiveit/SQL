@@ -1,0 +1,69 @@
+In this project, I created my own tables with some information about famous singers, and then made another table with addational information. 
+I then took the data from the two tables and joined them to create nice human readable lists!
+
+
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+
+INSERT INTO singers (name, age)
+VALUES ("Taylor Swift", 33);
+INSERT INTO singers (name, age) 
+VALUES ("Niall Horan", 29);
+INSERT INTO singers (name, age)
+VALUES ("Morgan Wallen", 29);
+INSERT INTO singers (name, age)
+VALUES ("George Strait", 70);
+INSERT INTO singers (name, age)
+VALUES ("Lizzo", 34);
+
+CREATE TABLE genre (id INTEGER PRIMARY KEY AUTOINCREMENT, artist_id INTEGER, song TEXT, music_genre TEXT);
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (1, "Lover", "Pop");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (1, "Red", "Pop");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (2, "Heaven", "Folk pop");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (3, "You Proof", "Pop country");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (4, "Write This Down", "Country");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (3, "Last Night", "Pop country");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (3, "Sunrise", "Pop country");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (4, "Run", "Country");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (1, "Love Story", "Pop");
+
+INSERT INTO genre (artist_id, song, music_genre)
+VALUES (3, "Cowgirls", "Pop country");
+
+
+SELECT singers.name, genre.music_genre
+FROM singers
+JOIN genre
+ON singers.id=genre.artist_id
+GROUP BY singers.name;
+
+
+SELECT singers.name, genre.music_genre
+FROM singers
+LEFT JOIN genre
+ON singers.id=genre.artist_id
+GROUP BY genre.artist_id;
+
+SELECT singers.name, singers.age, genre.song
+FROM singers
+JOIN genre
+ON singers.id=genre.artist_id
+ORDER BY singers.age ASC;
